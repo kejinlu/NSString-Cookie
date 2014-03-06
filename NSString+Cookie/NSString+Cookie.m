@@ -37,6 +37,7 @@
 }
 
 
+
 - (NSDictionary *)cookieProperties{
     NSDictionary *cookieMap = [self cookieMap];
     
@@ -95,6 +96,17 @@
     NSDictionary *cookieProperties = [self cookieProperties];
     NSHTTPCookie *cookie = [NSHTTPCookie cookieWithProperties:cookieProperties];
     return cookie;
+}
+
+
+- (NSArray *)cookies{
+    NSMutableArray *cookies = [NSMutableArray array];
+    NSArray *cookieStringArray = [self componentsSeparatedByString:@","];
+    for (NSString *cookieString in cookieStringArray) {
+        NSHTTPCookie *cookie = [cookieString cookie];
+        [cookies addObject:cookie];
+    }
+    return [cookies copy];
 }
 
 @end

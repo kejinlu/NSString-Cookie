@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "NSString+Cookie.h"
 
 @interface NSString_CookieTests : XCTestCase
 
@@ -26,9 +27,15 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testCookie
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    
+    NSString *baiduSetCookieString = @"ALIPAYJSESSIONID=8cKJPk4NZblJBh2yUsUDXvQZspLeC6appstore; Domain=.alipay.com; Path=/";
+    NSHTTPCookie *cookie = [baiduSetCookieString cookie];
+    XCTAssertEqualObjects(cookie.name, @"ALIPAYJSESSIONID", @"检测name");
+    XCTAssertEqualObjects(cookie.value, @"8cKJPk4NZblJBh2yUsUDXvQZspLeC6appstore", @"检测value");
+    XCTAssertEqualObjects(cookie.domain, @".alipay.com", @"检测domain");
+    XCTAssertEqualObjects(cookie.path, @"/", @"检测path");
 }
 
 @end
