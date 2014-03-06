@@ -8,5 +8,5 @@
 
 `ali_apache_id=10.228.255.113.1394110376595.4; path=/; domain=.alipay.com; expires=Wed, 30-Nov-2084 01:01:01 GMT`
    
-    NSString *baiduSetCookieString = @"ali_apache_id=10.228.255.113.1394110376595.4; path=/; domain=.alipay.com; expires=Wed, 30-Nov-2084 01:01:01 GMT";
+    NSString *alipaySetCookieString = @"ali_apache_id=10.228.255.113.1394110376595.4; path=/; domain=.alipay.com; expires=Wed, 30-Nov-2084 01:01:01 GMT";
     NSHTTPCookie *cookie = [baiduSetCookieString cookie];
