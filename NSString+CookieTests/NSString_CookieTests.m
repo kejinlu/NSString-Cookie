@@ -30,12 +30,19 @@
 - (void)testCookie
 {
     
-    NSString *baiduSetCookieString = @"ALIPAYJSESSIONID=8cKJPk4NZblJBh2yUsUDXvQZspLeC6appstore; Domain=.alipay.com; Path=/";
+    NSString *baiduSetCookieString = @"ali_apache_id=10.228.255.113.1394110376595.4; path=/; domain=.alipay.com; expires=Wed, 30-Nov-2084 01:01:01 GMT";
     NSHTTPCookie *cookie = [baiduSetCookieString cookie];
-    XCTAssertEqualObjects(cookie.name, @"ALIPAYJSESSIONID", @"检测name");
-    XCTAssertEqualObjects(cookie.value, @"8cKJPk4NZblJBh2yUsUDXvQZspLeC6appstore", @"检测value");
+    XCTAssertEqualObjects(cookie.name, @"ali_apache_id", @"检测name");
+    XCTAssertEqualObjects(cookie.value, @"10.228.255.113.1394110376595.4", @"检测value");
     XCTAssertEqualObjects(cookie.domain, @".alipay.com", @"检测domain");
     XCTAssertEqualObjects(cookie.path, @"/", @"检测path");
+    
+    NSString *dateString = @"Wed, 30-Nov-2084 01:01:01 GMT" ;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE, d-MMM-yyyy HH:mm:ss zzz"];
+    NSDate *expiresDate = [dateFormatter dateFromString:dateString];
+    
+    XCTAssertEqualObjects(cookie.expiresDate, expiresDate, @"检测expires");
 }
 
 @end

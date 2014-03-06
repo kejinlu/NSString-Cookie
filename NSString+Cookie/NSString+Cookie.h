@@ -10,8 +10,7 @@
 
 /**
  将单条Cookie字符串转成NSHTTPCookie对象
- 或者将一组Cookie字符串转成NSHTTPCookie对象数组
- Cookie的规范可以见相应的RFC文档 http://tools.ietf.org/html/rfc6265 
+ Cookie的规范可以见相应的RFC文档 http://tools.ietf.org/html/rfc6265
  */
 @interface NSString(Cookie)
 
@@ -19,10 +18,5 @@
  当前字符串为单条cookie
  */
 - (NSHTTPCookie *)cookie;
-
-/*!
- 当前字符串为一组cookie
- */
-- (NSArray *)cookies;
 
 @end
