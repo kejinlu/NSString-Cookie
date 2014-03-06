@@ -1,6 +1,6 @@
 #### NSString-Cookie
 ===============
-将单个Cookie字符串或者一组Cookie的字符串转成NSHTTPCookie对象.
+将单个Cookie字符串转成NSHTTPCookie对象.
 单条Cookie由多个属性组成，各个属性由分号隔开。
 具体的规范可以参见RFC文档: [http://tools.ietf.org/html/rfc6265](http://tools.ietf.org/html/rfc6265)
 
